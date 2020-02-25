@@ -2,7 +2,7 @@ import React from 'react'
 import { element } from 'prop-types'
 
 import { Wrapper } from './styles'
-import { Header } from '~/components/Header'
+import Header from '~/components/Header'
 
 const DefaultLayout = ({ children }) => {
   return (

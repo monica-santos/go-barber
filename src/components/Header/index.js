@@ -4,7 +4,7 @@ import { Container, Content, Profile } from './styles'
 
 import logo from '~/assets/logo-purple.svg'
 
-export const Header = () => {
+const Header = () => {
   return (
     <Container>
       <Content>
@@ -29,3 +29,5 @@ export const Header = () => {
     </Container>
   )
 }
+
+export default Header
