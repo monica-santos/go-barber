@@ -13,6 +13,12 @@ export const Content = styled.div`
   width: 100%;
   max-width: 315px;
   text-align: center;
+  span {
+    color: tomato;
+    align-self: flex-start;
+    margin: 0 0 10px;
+    font-weight: bold;
+  }
 
   form {
     display: flex;
