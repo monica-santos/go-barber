@@ -1,8 +1,10 @@
 import React from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { Form, Input } from '@rocketseat/unform'
 import * as Yup from 'yup'
 
+import { sigInRequest } from '~/store/modules/auth/actions'
 import logo from '~/assets/logo.svg'
 
 const schema = Yup.object().shape({
@@ -13,8 +15,10 @@ const schema = Yup.object().shape({
 })
 
 export default function SignIn() {
+  const dispatch = useDispatch()
+  const loading = useSelector(state => state.auth.loading)
   const handleSubmit = ({ email, password }) => {
-    console.tron.log({ email, password })
+    dispatch(sigInRequest(email, password))
   }
 
   return (
@@ -25,7 +29,7 @@ export default function SignIn() {
         <Input name="email" type="email" placeholder="Seu e-mail" />
         <Input name="password" type="password" placeholder="Sua senha" />
 
-        <button type="submit">Acessar</button>
+        <button type="submit">{loading ? 'Loading...' : 'Acessar'}</button>
 
         <Link to="/register">Criar conta gratuita</Link>
       </Form>
